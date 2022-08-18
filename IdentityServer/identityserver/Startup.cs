@@ -48,7 +48,7 @@ namespace identityserver
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
 
-                // see https://IdNet6.readthedocs.io/en/latest/topics/resources.html
+                // https://IdNet6.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
             })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
@@ -56,7 +56,7 @@ namespace identityserver
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
 
-            // not recommended for production - you need to store your key material somewhere secure
+            // not   recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
             services.AddAuthentication()
@@ -70,7 +70,9 @@ namespace identityserver
                     options.ClientId = "copy client ID from Google here";
                     options.ClientSecret = "copy client secret from Google here";
                 });
-        }
+        
+
+}
 
         public void Configure(IApplicationBuilder app)
         {
